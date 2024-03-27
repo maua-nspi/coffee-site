@@ -1,0 +1,377 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.titles-container {
+    background-color: #1A4785;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.welcome-title {
+    margin: 0;
+}
+
+.input-container, .dropdown-container, .file-container {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+label {
+    display: block;
+    width: 200px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.button-back, .button-send-order, .button-camera, .button-take-photo{
+    background-color: #1A4785;
+    color: white;
+    padding: 10px 10px;
+    width: 120px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-top: 5px;
+}
+
+.button-back:hover, .button-send-order:hover, .button-camera:hover, .button-take-photo:hover{
+    background-color: #3A6EB0;
+    transform: scale(1.1);
+}
+
+.div-button { 
+    text-align: center;
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+.div-button2 {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.loading-overlay {
+    display: none;
+    position: fixed;
+    z-index:  9999;
+    left:  0;
+    top:  0;
+    width:  100%;
+    height:  100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.264);
+}
+
+.spinner-container {
+    position: fixed;
+    top:  0;
+    left:  0;
+    right:  0;
+    bottom:  0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index:  9999;
+    background-color: rgba(0,  0,  0,  0.264);
+}
+
+.spinner {
+    width:  50px;
+    height:  50px;
+    border:  4px solid rgba(0,  0,  0,  0.1);
+    border-left-color: #1e5aad;
+    border-radius:  50%;
+    animation: spin  1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-overlay.visible {
+    display: block;
+}
+
+input[type="text"], select, input[type="file"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding:  10px;
+    width: 251px; 
+    font-size:  1rem;
+    font-family: Arial, sans-serif;
+    outline: none;
+    box-sizing: border-box;
+}
+
+::placeholder {
+    color: #999;
+    opacity:  1;
+}
+
+:-ms-input-placeholder {
+    color: #999;
+}
+
+::-ms-input-placeholder {
+    color: #999;
+}
+
+input[type="text"]:focus, select:focus, input[type="file"]:focus {
+    border-color: #4CAF50;
+    box-shadow:  0  0  5px rgba(0,  188,  140,  0.3);
+}
+
+select {
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    padding:  10px;
+    cursor: pointer;
+}
+
+.button-send-order{
+    margin-bottom: 40px;
+}
+
+.image-container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Estilos para telas de computadores padrão (desktop) */
+@media screen and (min-width: 1024px) {
+    
+    form {
+        max-width: 500px;
+        margin: 10px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    input[type="text"], select, input[type="file"] {
+        width: calc(100% - 170px);
+        padding: 10px;
+        border: 3px solid #1A4785;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .dropdown-container select {
+        width: calc(100% -  149px);
+        padding:  10px;
+        border:  3px solid #1A4785;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+
+    .button-back{
+        position: absolute;
+        left: 30px;
+        top: 90px;
+    }
+    
+    video {
+        max-width: 400px;
+        margin: 0px auto;
+        display: block;
+    }
+
+    .preview-image {
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: cover;
+    }
+}
+
+/* Estilos para telas de celulares */
+@media screen and (min-width: 281px) and (max-width: 480px) {
+    
+    form {
+        max-width: 80%;
+        margin: 10px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    input[type="text"], select, input[type="file"] {
+        width: 85%;
+        padding: 10px;
+        border: 3px solid #1A4785;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .dropdown-container select {
+        width: 85%;
+        padding:  10px;
+        border:  3px solid #1A4785;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .button-back{
+        margin-top: 14px;
+    }
+    
+    video {
+        max-width: 300px;
+        margin: 0px auto;
+        display: block;
+    }
+
+    .preview-image {
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: cover;
+    }
+    
+    .button-camera{
+        display: none;
+    }
+}
+
+/* Estilos para iPads e tablets */
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+    
+    form {
+        max-width: 400px;
+        margin: 10px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    input[type="text"], select, input[type="file"] {
+        width: 85%;
+        padding: 10px;
+        border: 3px solid #1A4785;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .dropdown-container select {
+        width: 85%;
+        padding:  10px;
+        border:  3px solid #1A4785;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+
+    .button-back{
+        position: absolute;
+        left: 10px;
+        top: 85px;
+    }
+
+    video {
+        max-width: 400px;
+        margin: 0px auto;
+        display: block;
+    }
+
+    .preview-image {
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: cover;
+    }
+
+    .button-camera{
+        display: none;
+    }
+}
+
+/* Estilos para iPads e tablets */
+@media only screen and (max-width: 280px) {
+    
+    form {
+        max-width: 400px;
+        margin: 10px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    input[type="text"], select, input[type="file"] {
+        width: 85%;
+        padding: 10px;
+        border: 3px solid #1A4785;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .dropdown-container select {
+        width: 85%;
+        padding:  10px;
+        border:  3px solid #1A4785;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+
+    .button-back{
+        margin-top: 10px;
+    }
+    
+    video {
+        max-width: 250px;
+        margin: 0px auto;
+        display: block;
+    }
+
+    .preview-image {
+        max-width: 250px;
+        max-height: 250px;
+        object-fit: cover;
+    }
+
+    .button-camera{
+        display: none;
+    }
+}
