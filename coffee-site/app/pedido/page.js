@@ -129,11 +129,22 @@ const OrderPage = () => {
                         coffeeType: selectedOption
                     })
                 });
-    
                 if (dbResponse.ok) {
                     setIsLoading(false);
-                    router.push('/'); // Navegação para a página inicial
                     toast.success('Pedido enviado com sucesso!');
+                    // Atrasa a navegação em 2 segundos (2000 milissegundos)
+                    setTimeout(() => {
+                        router.push('/'); // Navegação para a página inicial
+                    }, 2500); //tempo de atraso
+
+                    // Redefine os estados para seus valores iniciais
+                    setSelectedOption('');
+                    setInputValue('');
+                    setSelectedFile(null);
+                    setCameraStream(null);
+                    setIsCameraActive(false);
+                    setPreview(null);
+
                 } else {
                     throw new Error('Erro ao inserir dados no banco.');
                 }
