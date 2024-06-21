@@ -116,13 +116,13 @@ const OrderPage = () => {
         formData.append('photo', selectedFile);
     
         try {
-            const printerResponse = await fetch('http://localhost:5000/Printer_Script', { // Mude pro IP do PC
+            const printerResponse = await fetch('http://10.2.130.164:5000/Printer_Script', { // Mude pro IP do PC
                 method: 'POST',
                 body: formData
             });
     
             if (printerResponse.ok) {
-                const dbResponse = await fetch('http://localhost:5000/DB_Script', { // Mude pro IP do PC
+                const dbResponse = await fetch('http://10.2.130.164:5000/DB_Script', { // Mude pro IP do PC
                     method: 'POST',
                     body: new URLSearchParams({
                         name: inputValue,
